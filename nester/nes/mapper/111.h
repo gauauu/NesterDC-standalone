@@ -11,7 +11,8 @@ public:
   ~NES_mapper111() {}
   
   void  Reset();
-  void  MemoryWrite(uint32 addr, uint8 data);
+  void  MemoryWriteLow(uint32 addr, uint8 data);
+  void  set_gtrom_bank(uint8 prg_bank);
 
 protected:
 private:
