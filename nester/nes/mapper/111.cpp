@@ -41,6 +41,7 @@ GRNC PPPP
 
   uint8 prg = data & 0xf;
   uint8 chr = (data & 0x10) >> 4;
+  uint8 nametable = (data & 0x20) >> 5;
 
   set_gtrom_bank(prg);
 
@@ -49,6 +50,7 @@ GRNC PPPP
   for (int i = 0; i < 8; i++) {
     set_VRAM_bank0(i, i + c);
   }
+  set_VRAM_bank8(8, nametable);
   return;
 }
 
