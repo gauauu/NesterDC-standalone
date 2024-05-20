@@ -60,30 +60,4 @@ void NES_mapper111::set_gtrom_bank(uint8 prg)
   set_CPU_banks(prg*4, prg*4+1, prg*4+2, prg*4+3);
 }
 
-/*
-  if (!(
-      (addr >= 0x5000) && (addr <= 0x5fff) ||
-      (addr >= 0x7000) && (addr <= 0x7fff)
-      )) {
-      return;
-  }
-  */
-
-/*
-  uint8 prg = data & 0x0f;
-  uint8 chr = (data & 0x10) >> 4;
-  uint8 nt = (data & 0x20) >> 5;
-
-  set_CPU_banks(prg*4,(prg*4)+1, prg * 4 + 2, prg * 4 + 3);
-
-  uint8 c = chr * 8;
-  for (int i = 0; i < 8; i++) {
-    set_VRAM_bank0(i, i + c);
-  }
-
- */
-
-  //TODO: bank nametables
-//}
-/////////////////////////////////////////////////////////////////////
 
