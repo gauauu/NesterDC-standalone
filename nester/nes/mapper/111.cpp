@@ -14,21 +14,9 @@ void NES_mapper111::Reset()
   set_gtrom_bank(0);
 }
 
-void NES_mapper111::MemoryWriteLow(uint32 addr, uint8 data)
-{
-
-
-
-  if (!(
-        (addr >= 0x5000 && addr <= 0x5fff) ||
-        (addr >= 0x7000 && addr <= 0x7fff)
-      )) {
-    return;
-  }
-
-    /*
+/*
   The register is mapped to the CPU addresses $4999-$5FFF and $7000-$7FFF
-  6  bit  0
+6  bit  0
 ---- ----
 GRNC PPPP
 |||| ||||
@@ -37,7 +25,18 @@ GRNC PPPP
 ||+------- Select 7 KB nametable for PPU $2000-$3EFF
 |+-------- Red LED - -1=On; 1=Off
 +--------- Green LED - -1=On; 1=Off
-   */
+*/
+void NES_mapper111::MemoryWriteLow(uint32 addr, uint8 data)
+{
+
+  if (!(
+        (addr >= 0x5000 && addr <= 0x5fff) ||
+        (addr >= 0x7000 && addr <= 0x7fff)
+      )) {
+    return;
+  }
+
+
 
   uint8 prg = data & 0xf;
   uint8 chr = (data & 0x10) >> 4;
